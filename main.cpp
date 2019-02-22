@@ -11,8 +11,8 @@
 
 Size GetSize( FILE *f )
 {
-	Size size = { -1, -1 };
-	unsigned int w, h;
+	Size size = { 0, 0 };
+	unsigned long w, h = 0;
 	unsigned char c = '\0';
 	unsigned char pc = '\0';
 	
@@ -26,8 +26,9 @@ Size GetSize( FILE *f )
 	while( ( c = fgetc(f) ) && !feof( f ) )
 	{
 		// The variable 'pc' is to check the previous character for false new-lines (lines without content).
-		if( c == '\n' && pc != '\n' )
+		if( c == '\n' && pc != '\n' ) {
 			h++;
+		}
 
 		pc = c;
 	}

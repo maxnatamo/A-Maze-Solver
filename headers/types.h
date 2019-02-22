@@ -1,7 +1,7 @@
 #pragma once
 
 typedef struct {
-	int width, height;
+	unsigned long width, height;
 } Size;
 
 enum CellTypes {
